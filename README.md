@@ -7,7 +7,7 @@ If we want to show only markers on screen and have faster rendering we should se
 When we want to use normal lib, we should set it to false. But be carefull, all markers will be rendered,
 but it will be very slowly.
 
-## Using
+## Used libs
 
 It used [Android Maps Utils API](https://github.com/bobzilladev/android-maps-utils) and [Google Maps Android
 API](http://developer.android.com/google/play-services/maps.html).
