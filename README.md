@@ -2,10 +2,9 @@
 
 ## Introduction
 
-This is library for everyone who wants to show many markers on screen. We must only set variable mManyMarkers.
-If we want to show only markers on screen and have faster rendering we should set it to 'true'.
-When we want to use normal lib, we should set it to false. But be carefull, all markers will be rendered,
-but it will be very slowly.
+This is library for everyone who wants to show many markers on screen. You must only set a value for variable mManyMarkers.
+If you want to show only markers on screen and have faster rendering you should set it to 'true'.
+When you want to use normal lib, you should set it to false. But be carefull, all markers will be rendered and it will be very slowly.
 
 ## Used libs
 
