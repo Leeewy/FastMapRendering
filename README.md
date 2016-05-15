@@ -11,6 +11,13 @@ When you want to use normal lib, you should set it to false. But be carefull, al
 It used [Android Maps Utils API](https://github.com/bobzilladev/android-maps-utils) and [Google Maps Android
 API](http://developer.android.com/google/play-services/maps.html).
 
+## HOW IT WORKS
+As you can see in app, when you try to show more than 500 markers on small area and use normal lib, it takes almost one minute to finish rendering
+and looks like on the image below (there is 10 000 markers).
+![Many markers with normal lib image](images/slow_many_markers.png)
+
+With deleting rendering outside the screen it takes only few seconds.
+
 ## Comments
 
 Do not change switch while markers are rendering. If you do that, old markers may stay on screen.
