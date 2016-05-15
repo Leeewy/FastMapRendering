@@ -8,4 +8,4 @@
 /captures
 build
 gradle
-keys.xml
+/app/src/main/res/values/keys.xml
