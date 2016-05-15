@@ -15,3 +15,5 @@ API](http://developer.android.com/google/play-services/maps.html).
 
 Do not change switch while markers are rendering. If you do that, old markers may stay on screen.
 (it is only example and I don't want to waste time for fix it).
+
+Remember change Google API key for yours in keys.xml file!
