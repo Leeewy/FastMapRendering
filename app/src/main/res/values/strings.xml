@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">GoogleMapsUtil</string>
-    <string name="title_activity_main">GoogleMapsUtil by Lewy</string>
 
     <string name="toggle_text">Faster cluster</string>
 </resources>
