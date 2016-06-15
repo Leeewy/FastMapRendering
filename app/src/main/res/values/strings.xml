@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GoogleMapsUtil</string>
+    <string name="app_name">Faster Map Rendering</string>
 
-    <string name="toggle_text">Faster cluster</string>
+    <string name="toggle_text">Faster render</string>
 </resources>

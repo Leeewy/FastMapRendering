@@ -1,4 +1,4 @@
-package com.lewy.googlemapsutil;
+package com.lewy.fastermaprendering;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.clustering.ClusterItem;

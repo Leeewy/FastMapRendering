@@ -1,4 +1,4 @@
-package com.lewy.googlemapsutil.managers;
+package com.lewy.fastermaprendering.managers;
 
 import android.content.Context;
 

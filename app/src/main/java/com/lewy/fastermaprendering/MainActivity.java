@@ -1,9 +1,10 @@
-package com.lewy.googlemapsutil;
+package com.lewy.fastermaprendering;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
@@ -12,12 +13,16 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.lewy.googlemapsutil.managers.FastClusterManager;
-import com.lewy.googlemapsutil.managers.MyDefaultClusterRenderer;
+import com.lewy.fastermaprendering.managers.FastClusterManager;
+import com.lewy.fastermaprendering.managers.MyDefaultClusterRenderer;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    private static final String TAG = "MainActivity";
+
     private FastClusterManager<MapItem> mFastClusterManager;
+
+    private Switch switchView;
 
     private GoogleMap mMap;
 
@@ -28,17 +33,33 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.i(TAG, "onCreate()");
+
         setContentView(R.layout.activity_main);
+
+        switchView = (Switch) findViewById(R.id.faster_cluster_switch);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.i(TAG, "onResume()");
+
+        if(mMap == null) {
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+        }
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        Log.i(TAG, "onMapReady()");
+
         mMap = googleMap;
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
@@ -53,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     private void setSwitchAction() {
-        Switch switchView = (Switch) findViewById(R.id.faster_cluster_switch);
         switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mManyMarkers = isChecked;
@@ -63,6 +83,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     class CreateMarkers extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected void onPreExecute() {
+            mFastClusterManager.clearItems();
+        }
+
         @Override
         protected Void doInBackground(Void... arg0) {
             mFastClusterManager.clearItems();
@@ -77,12 +102,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         @Override
-        protected void onPreExecute() {
-            mFastClusterManager.clearItems();
-        }
-
-        @Override
         protected void onPostExecute(Void aVoid) {
+            Log.i(TAG, "onPostExecute()");
             mFastClusterManager.setRenderer(new MyDefaultClusterRenderer(MainActivity.this, mMap, mFastClusterManager, mManyMarkers));
         }
     }
