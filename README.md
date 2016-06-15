@@ -1,8 +1,8 @@
-# Google Maps Util for Android
+# FastMapRendering for Android
 
 ## Introduction
 
-This is project for everyone who wants to show many markers on screen and doesn't want to wait for rendering them.
+This is open-source project for everyone who wants to show many markers on screen and doesn't want to wait for rendering them.
 
 ## Used libs
 
@@ -42,7 +42,7 @@ public class FastClusterManager<T extends ClusterItem> extends ClusterManager {
 }
 ```
 
-Next step is to write your own DefaultClusterRenderer class. All you need to do is copy all code from original class and add mManyMarkers flag. You should set it while creating DefaultClusterRenderer object.
+Next step is to write your own DefaultClusterRenderer class. All you need to do is copy all code from original class from [Android Maps Utils API](https://github.com/googlemaps/android-maps-utils/blob/master/library/src/com/google/maps/android/clustering/view/DefaultClusterRenderer.java) and add mManyMarkers flag. You should set it while creating DefaultClusterRenderer object.
 
 Now you must change condition for run RenderTask:
 
