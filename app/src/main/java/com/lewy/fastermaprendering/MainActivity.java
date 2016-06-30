@@ -16,6 +16,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.lewy.fastermaprendering.managers.FastClusterManager;
 import com.lewy.fastermaprendering.managers.MyDefaultClusterRenderer;
 
+/**
+ * Created by lewy on 14.05.2016.
+ */
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final String TAG = "MainActivity";

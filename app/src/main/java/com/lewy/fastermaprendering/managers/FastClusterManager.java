@@ -8,7 +8,7 @@ import com.google.maps.android.clustering.ClusterItem;
 import com.google.maps.android.clustering.ClusterManager;
 
 /**
- * Created by dawid on 14.05.2016.
+ * Created by lewy on 14.05.2016.
  */
 public class FastClusterManager<T extends ClusterItem> extends ClusterManager {
     private CameraPosition mPreviousCameraPosition;
